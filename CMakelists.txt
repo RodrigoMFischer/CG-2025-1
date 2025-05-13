@@ -47,12 +47,13 @@ set(EXERCISES
     Hello3D
     TriangleTex
     SpherePhong
+    Hello3D-Rodrigo
    
 )
 
 add_compile_options(-Wno-pragmas)
 
-# Define as bibliotecas para cada sistema operacional
+# Define as bibliotecas para cada sistema operacionals
 if(WIN32)
     set(OPENGL_LIBS opengl32)
 elseif(APPLE)

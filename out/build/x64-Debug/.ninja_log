@@ -1,0 +1,23 @@
+# ninja log v5
+33	516	7682704252519937	_deps/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj	d5e3d98a255e01a
+53	493	7682704872516831	_deps/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj	c5f5f69e4c4dc11d
+117	631	7682705443441885	_deps/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj	beb78167c5aa55d8
+17	524	7682704252519937	_deps/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj	3dcbeb25e26ab7ab
+29	526	7682704252519937	_deps/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj	f95192c5a50445c
+62	509	7682704872763787	_deps/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj	1b4599d08435f386
+22	533	7682704252749093	_deps/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj	2c25d922fb03c21c
+58	499	7682704872657556	_deps/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj	187da0cb923e53d4
+48	489	7682704872476564	_deps/glfw-build/src/CMakeFiles/glfw.dir/platform.c.obj	e6366adebc9e851b
+121	629	7682705443366931	_deps/glfw-build/src/CMakeFiles/glfw.dir/null_init.c.obj	25a0380d55f1ebf
+131	676	7682705443884431	_deps/glfw-build/src/CMakeFiles/glfw.dir/null_window.c.obj	822f732209e85b4d
+125	696	7682705444038603	_deps/glfw-build/src/CMakeFiles/glfw.dir/null_monitor.c.obj	901f6e5a41d84428
+70	523	7682707808354316	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj	ae8e5bc297e5763
+64	525	7682707808323841	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_module.c.obj	445f430470084e3e
+76	529	7682707808399412	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj	d9374f7a2bf7e8c8
+59	555	7682707808689572	_deps/glfw-build/src/CMakeFiles/glfw.dir/null_joystick.c.obj	883f764045f0f2a6
+46	471	7682708002825836	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj	1a932d36a6bce38a
+50	501	7682708003086496	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj	7ac500a8f1d6bf0d
+55	516	7682708003249454	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj	da5ab2b57ba3f6de
+60	531	7682708003403556	_deps/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj	83a23f2c637c43cc
+57	1401	7688737936959238	_deps/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj	54beed6b6c8a98cf
+43	164	7688738449469880	_deps/glfw-build/src/glfw3.lib	56a420425c044bbe

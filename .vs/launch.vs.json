@@ -1,0 +1,18 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakelists.txt",
+      "projectTarget": "Hello3D.exe",
+      "name": "Hello3D.exe"
+    },
+    {
+      "type": "default",
+      "project": "CMakelists.txt",
+      "projectTarget": "SpherePhong.exe",
+      "name": "SpherePhong.exe"
+    }
+  ]
+}
