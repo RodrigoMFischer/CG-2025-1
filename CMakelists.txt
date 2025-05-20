@@ -49,6 +49,7 @@ set(EXERCISES
     SpherePhong
     Hello3D-Rodrigo
     vivencial1
+    modulo2
    
 )
 
