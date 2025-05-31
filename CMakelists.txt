@@ -50,7 +50,7 @@ set(EXERCISES
     Hello3D-Rodrigo
     vivencial1
     modulo2
-   
+    vivencial2
 )
 
 add_compile_options(-Wno-pragmas)
@@ -82,3 +82,4 @@ foreach(EXERCISE ${EXERCISES})
 endforeach()
 
 target_sources(vivencial1 PRIVATE CodeSnippets/LoadSimpleOBJ.cpp)
+target_sources(vivencial2 PRIVATE CodeSnippets/LoadSimpleOBJ.cpp)
