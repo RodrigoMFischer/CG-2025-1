@@ -130,7 +130,9 @@ void main()
     }
 
     // Resultado final
-    vec3 result = (ambient + diffuse + diffuseFill); // * vec3(objectColor) + specular; SE COLOCAR ESSA PARTE DESATIVA O DIFUSEFILL????
+	vec3 result = ambient * vec3(objectColor) + diffuse * vec3(objectColor) + diffuseFill + specular;
+
+    //vec3 result = ambient + diffuse + diffuseFill + vec3(objectColor) + specular;
     color = vec4(result,1.0);
 }
 
