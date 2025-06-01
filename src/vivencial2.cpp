@@ -48,6 +48,7 @@ const GLuint WIDTH = 800, HEIGHT = 800;
 vec3 lightPos;
 bool keyLightOn = true;
 bool fillLightOn = true;
+bool backLightOn = true;
 
 
 // Código fonte do Vertex Shader (em GLSL): ainda hardcoded
@@ -84,6 +85,9 @@ uniform vec3 fillLightPos;
 uniform vec3 fillLightColor;
 uniform int keyLightOn;
 uniform int fillLightOn;
+uniform vec3 backLightPos;
+uniform vec3 backLightColor;
+uniform int backLightOn;
 uniform vec3 camPos;
 uniform float ka;
 uniform float kd;
@@ -107,6 +111,7 @@ void main()
     vec3 diffuse = vec3(0.0);
     vec3 diffuseFill = vec3(0.0);
     vec3 specular = vec3(0.0);
+	vec3 diffuseBack = vec3(0.0);
 
     if (keyLightOn == 1) {
         vec3 L = normalize(lightPos - vec3(fragPos));
@@ -128,9 +133,17 @@ void main()
         float attenuationFill = 1.0 / (distFill * distFill);
         diffuseFill = kd * diffFill * fillLightColor * attenuationFill;
     }
+	
+	if (backLightOn == 1) {
+		vec3 Lback = normalize(backLightPos - vec3(fragPos));
+		float diffBack = max(dot(N, Lback), 0.0);
+		float distBack = length(backLightPos - vec3(fragPos));
+		float attenuationBack = 1.0 / (distBack * distBack);
+		diffuseBack = kd * diffBack * backLightColor * attenuationBack;
+	}
 
     // Resultado final
-	vec3 result = ambient * vec3(objectColor) + diffuse * vec3(objectColor) + diffuseFill + specular;
+	vec3 result = ambient * vec3(objectColor) + diffuse * vec3(objectColor) + diffuseFill + specular + diffuseBack;
 
     //vec3 result = ambient + diffuse + diffuseFill + vec3(objectColor) + specular;
     color = vec4(result,1.0);
@@ -194,8 +207,13 @@ int main()
 
 	float ka = 0.1, kd =1.0, ks = 0.5, q = 10.0;
 	lightPos = vec3(0.6, 1.2, -0.5);
+	//FillLight
 	vec3 fillLightPos = vec3(-1.0f, -1.0f, -1.0f);
 	vec3 fillLightColor = vec3(0.0f, 0.0f, 1.0f);
+	//BackLight
+	vec3 backLightPos = vec3(-1.0f, 1.0f, -1.0f);
+	vec3 backLightColor = vec3(0.0f, 1.0f, 0.0f);
+
 	vec3 camPos = vec3(0.0,0.0,-3.0);
 
 
@@ -212,6 +230,9 @@ int main()
 
 	glUniform3f(glGetUniformLocation(shaderID, "fillLightPos"), fillLightPos.x,fillLightPos.y,fillLightPos.z);
 	glUniform3f(glGetUniformLocation(shaderID, "fillLightColor"), fillLightColor.x,fillLightColor.y,fillLightColor.z);
+	//Uniforms da Back Light
+	glUniform3f(glGetUniformLocation(shaderID, "backLightPos"), backLightPos.x,backLightPos.y,backLightPos.z);
+	glUniform3f(glGetUniformLocation(shaderID, "backLightColor"), backLightColor.x,backLightColor.y,backLightColor.z);
 
 	glUniform3f(glGetUniformLocation(shaderID, "camPos"), camPos.x,camPos.y,camPos.z);
 
@@ -241,6 +262,8 @@ int main()
 		glUniform3f(glGetUniformLocation(shaderID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 		glUniform1i(glGetUniformLocation(shaderID, "keyLightOn"), keyLightOn);
 		glUniform1i(glGetUniformLocation(shaderID, "fillLightOn"), fillLightOn);
+		glUniform1i(glGetUniformLocation(shaderID, "backLightOn"), backLightOn);
+
 
 
 		glBindVertexArray(VAO); // Conectando ao buffer de geometria
@@ -293,7 +316,10 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
 	}
 	if (key == GLFW_KEY_2 && action == GLFW_PRESS){
 		fillLightOn = !fillLightOn;
-	}	
+	}
+	if (key == GLFW_KEY_3 && action == GLFW_PRESS){
+		backLightOn = !backLightOn;
+	}		
 }
 
 // Esta função está basntante hardcoded - objetivo é compilar e "buildar" um programa de
