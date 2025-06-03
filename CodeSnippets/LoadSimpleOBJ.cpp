@@ -108,6 +108,9 @@ int loadSimpleOBJ(string filePATH, int &nVertices)
                 vBuffer.push_back(color.r);
                 vBuffer.push_back(color.g);
                 vBuffer.push_back(color.b);
+                vBuffer.push_back(normals[ni].x);
+                vBuffer.push_back(normals[ni].y);
+                vBuffer.push_back(normals[ni].z);
             }
         }
     }
@@ -123,16 +126,19 @@ int loadSimpleOBJ(string filePATH, int &nVertices)
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(GLfloat), (GLvoid*)0);                // posição
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat))); // cor
     glEnableVertexAttribArray(1);
+
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat))); // normal
+    glEnableVertexAttribArray(2);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
-	nVertices = vBuffer.size() / 6;  // x, y, z, r, g, b (valores atualmente armazenados por vértice)
+    nVertices = vBuffer.size() / 9; // Agora temos 9 valores por vértice
 
     return VAO;
 }

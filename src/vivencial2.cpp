@@ -30,6 +30,8 @@ using namespace std;
 using namespace glm;
 
 #include <cmath>
+#include "../include/LoadSimpleObj.h"
+
 
 // Protótipo da função de callback de teclado
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
@@ -199,7 +201,7 @@ int main()
 
 	// Gerando um buffer simples, com a geometria de um triângulo
 	int nVertices;
-	GLuint VAO = generateSphere(0.5, 16, 16, nVertices);
+	GLuint VAO = loadSimpleOBJ("../assets/Modelos3D/SuzanneSubdiv1.obj", nVertices);
 
 	// Carregando uma textura e armazenando seu id
 	int imgWidth, imgHeight;
@@ -270,7 +272,7 @@ int main()
 		glBindTexture(GL_TEXTURE_2D, texID); //conectando com o buffer de textura que será usado no draw
 
 		// Primeiro Triângulo
-		drawGeometry(shaderID, VAO, vec3(0, 0, 0), vec3(1, 1, 1), 0.0, nVertices);
+		drawGeometry(shaderID, VAO, vec3(0, 0, 0), vec3(0.3, 0.3, 0.3), 0.0, nVertices);
 
 	
 		glBindVertexArray(0); // Desconectando o buffer de geometria
