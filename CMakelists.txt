@@ -51,6 +51,8 @@ set(EXERCISES
     vivencial1
     modulo2
     vivencial2
+    modulo3
+    modulo4
 )
 
 add_compile_options(-Wno-pragmas)

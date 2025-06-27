@@ -145,7 +145,7 @@ int main (){
 	GLuint shaderID = setupShader();
 	// Não está funcionando passar apenas o diretorio relativo
 	// Geometry geom = setupGeometry("../assets/Modelos3D/SuzanneSubdiv1.obj");
-	Geometry geom = setupGeometry("D:/ComputacaoGrafica/RepoAulas/repo-rodrigo/assets/Modelos3D/SuzanneSubdiv1.obj");
+	Geometry geom = setupGeometry("../assets/Modelos3D/SuzanneSubdiv1.obj");
 
 	lightPos = glm::vec3(0.6, 1.2, -0.5);
 
